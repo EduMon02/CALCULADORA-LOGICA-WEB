@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculadora de Lógica Computacional</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=9ytfLGqMzq8o51b41M6QhCKQzfoSs33rtxLps3b7fjY2jR8QkTYEkXkL70_M-SJJrNcwvkESbCRhqxn6S3tmr90OH9i3oi1n_ja6DujA1yRyYbZ5KAn7rxiJd-hIw_cr2dm1bQgPctw_CYMzGTCPssldaL7L3iPJzOHR2RIvRVPPB4jrr4FkcdOqyp39j4g5" charset="UTF-8"></script></head>
+
+<body>
+
+<h1>Calculadora de Lógica Computacional</h1>
+
+<input id="expresion" placeholder="Ej: (p ∧ q) → ¬r">
+
+<div class="panel">
+
+<button onclick="add('∧')">∧ AND</button>
+<button onclick="add('∨')">∨ OR</button>
+<button onclick="add('¬')">¬ NOT</button>
+<button onclick="add('→')">→ IMPLICA</button>
+<button onclick="add('↔')">↔ BICONDICIONAL</button>
+<button onclick="add('⊕')">⊕ XOR</button>
+
+<button onclick="add('(')">(</button>
+<button onclick="add(')')">)</button>
+
+</div>
+
+<br>
+
+<button class="calcular" onclick="resolver()">Generar tabla de verdad</button>
+
+<div id="tabla"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
