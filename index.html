@@ -1,38 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Calculadora de Lógica Computacional</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Lógica Proposicional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=9ytfLGqMzq8o51b41M6QhCKQzfoSs33rtxLps3b7fjY2jR8QkTYEkXkL70_M-SJJrNcwvkESbCRhqxn6S3tmr90OH9i3oi1n_ja6DujA1yRyYbZ5KAn7rxiJd-hIw_cr2dm1bQgPctw_CYMzGTCPssldaL7L3iPJzOHR2RIvRVPPB4jrr4FkcdOqyp39j4g5" charset="UTF-8"></script></head>
-
+</head>
 <body>
 
-<h1>Calculadora de Lógica Computacional</h1>
+<div class="bg-grid"></div>
 
-<input id="expresion" placeholder="Ej: (p ∧ q) → ¬r">
+<main>
+  <header>
+    <div class="titulo-wrap">
+      <span class="label-top">LÓGICA PROPOSICIONAL</span>
+      <h1>Tabla de<br><em>Verdad</em></h1>
+    </div>
+    <p class="subtitulo">Ingresa una expresión con variables como <code>p</code>, <code>q</code>, <code>r</code> y operadores lógicos.</p>
+  </header>
 
-<div class="panel">
+  <section class="input-section">
+    <div class="input-wrap">
+      <input id="expresion" type="text" placeholder="Ej: (p ∧ q) → ¬r" autocomplete="off" spellcheck="false">
+      <button class="btn-calcular" onclick="resolver()">
+        <span>Generar</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
 
-<button onclick="add('∧')">∧ AND</button>
-<button onclick="add('∨')">∨ OR</button>
-<button onclick="add('¬')">¬ NOT</button>
-<button onclick="add('→')">→ IMPLICA</button>
-<button onclick="add('↔')">↔ BICONDICIONAL</button>
-<button onclick="add('⊕')">⊕ XOR</button>
+    <div class="operadores">
+      <div class="op-grupo">
+        <span class="op-label">Operadores</span>
+        <button class="op-btn" onclick="add('∧')" title="AND"><span class="op-sym">∧</span><span class="op-name">AND</span></button>
+        <button class="op-btn" onclick="add('∨')" title="OR"><span class="op-sym">∨</span><span class="op-name">OR</span></button>
+        <button class="op-btn" onclick="add('¬')" title="NOT"><span class="op-sym">¬</span><span class="op-name">NOT</span></button>
+        <button class="op-btn" onclick="add('→')" title="IMPLICA"><span class="op-sym">→</span><span class="op-name">IMPL</span></button>
+        <button class="op-btn" onclick="add('↔')" title="BICONDICIONAL"><span class="op-sym">↔</span><span class="op-name">BICOND</span></button>
+        <button class="op-btn" onclick="add('⊕')" title="XOR"><span class="op-sym">⊕</span><span class="op-name">XOR</span></button>
+      </div>
+      <div class="op-grupo">
+        <span class="op-label">Paréntesis</span>
+        <button class="op-btn paren" onclick="add('(')"><span class="op-sym">(</span></button>
+        <button class="op-btn paren" onclick="add(')')"><span class="op-sym">)</span></button>
+        <button class="op-btn paren borrar" onclick="borrar()" title="Borrar último"><span class="op-sym">⌫</span></button>
+      </div>
+    </div>
+  </section>
 
-<button onclick="add('(')">(</button>
-<button onclick="add(')')">)</button>
+  <div id="error-msg" class="error-msg" style="display:none"></div>
+  <div id="clasificacion" class="clasificacion" style="display:none"></div>
+  <div id="tabla-wrap"></div>
 
-</div>
-
-<br>
-
-<button class="calcular" onclick="resolver()">Generar tabla de verdad</button>
-
-<div id="tabla"></div>
+</main>
 
 <script src="script.js"></script>
-
 </body>
 </html>
